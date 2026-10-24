@@ -1,0 +1,28 @@
+2024-01-15T10:00:00.123+00:00 INFO app.startup Starting application server on port 8080
+2024-01-15T10:00:01.456+00:00 INFO app.db Connected to database at postgres://db-host:5432/myapp
+2024-01-15T10:00:02.789+00:00 INFO app.cache Redis cache connected at redis://cache:6379
+2024-01-15T10:01:00.000+00:00 INFO app.web GET /api/health 200 OK 12ms
+2024-01-15T10:01:05.001+00:00 INFO app.web GET /api/users 200 OK 45ms
+2024-01-15T10:02:00.000+00:00 WARNING app.db Slow query detected: SELECT * FROM orders WHERE user_id=42 took 1250ms
+2024-01-15T10:02:30.000+00:00 WARNING app.db Connection pool utilisation at 80%
+2024-01-15T10:03:00.001+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+	Is the server running on host "db-host" (10.0.0.5) and accepting
+	TCP/IP connections on port 5432?
+2024-01-15T10:03:00.500+00:00 ERROR app.web POST /api/orders 500 Internal Server Error 3001ms
+2024-01-15T10:03:01.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+	Is the server running on host "db-host" (10.0.0.5) and accepting
+	TCP/IP connections on port 5432?
+2024-01-15T10:03:01.500+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T10:03:02.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T10:03:02.500+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T10:03:03.000+00:00 CRITICAL app.db Database connection pool exhausted after 5 retries
+2024-01-15T10:03:03.200+00:00 ERROR app.web GET /api/products 500 Internal Server Error
+2024-01-15T10:03:03.400+00:00 ERROR app.web GET /api/orders 503 Service Unavailable
+2024-01-15T10:03:04.000+00:00 ERROR app.web POST /api/checkout 500 Internal Server Error
+2024-01-15T10:03:04.500+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T10:03:05.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T10:03:05.500+00:00 CRITICAL app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T10:03:06.000+00:00 ERROR app.web GET /api/users/profile 500 Internal Server Error
+2024-01-15T10:05:00.000+00:00 INFO app.db Reconnecting to database...
+2024-01-15T10:05:01.000+00:00 INFO app.db Database connection restored
+2024-01-15T10:05:02.000+00:00 INFO app.web Service recovered

@@ -1,0 +1,69 @@
+2024-01-15T09:00:00.000+00:00 INFO app.startup Application starting on port 8080
+2024-01-15T09:00:01.000+00:00 INFO app.db Connected to postgres at db-host:5432
+2024-01-15T09:00:02.000+00:00 INFO app.cache Redis cache connected
+2024-01-15T09:02:00.000+00:00 WARNING app.db Connection pool utilisation rising: 60%
+2024-01-15T09:02:10.000+00:00 WARNING app.db Connection pool utilisation rising: 68%
+2024-01-15T09:02:20.000+00:00 WARNING app.db Connection pool utilisation rising: 76%
+2024-01-15T09:02:30.000+00:00 WARNING app.db Connection pool utilisation rising: 84%
+2024-01-15T09:02:40.000+00:00 WARNING app.db Connection pool utilisation rising: 92%
+2024-01-15T09:03:20.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T09:03:50.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T09:04:20.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T09:04:50.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T09:05:20.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T09:05:50.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T09:05:52.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T09:05:54.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T09:05:56.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T09:05:58.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T09:06:00.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T09:06:02.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T09:06:04.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T09:06:06.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T09:06:08.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T09:06:10.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T09:06:12.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T09:06:14.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T09:06:16.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T09:06:18.000+00:00 ERROR app.db OperationalError: could not connect to server: Connection refused
+2024-01-15T09:06:22.000+00:00 CRITICAL app.db Database connection pool exhausted after 20 retries. Shutting down DB layer.
+2024-01-15T09:06:00.000+00:00 ERROR app.web HTTPError: 503 Service Unavailable for url: https://api.payments.internal/charge
+2024-01-15T09:06:03.000+00:00 ERROR app.web HTTPError: 503 Service Unavailable for url: https://api.payments.internal/charge
+2024-01-15T09:06:06.000+00:00 ERROR app.web HTTPError: 503 Service Unavailable for url: https://api.payments.internal/charge
+2024-01-15T09:06:09.000+00:00 ERROR app.web HTTPError: 503 Service Unavailable for url: https://api.payments.internal/charge
+2024-01-15T09:06:12.000+00:00 ERROR app.web HTTPError: 503 Service Unavailable for url: https://api.payments.internal/charge
+2024-01-15T09:06:15.000+00:00 ERROR app.web HTTPError: 503 Service Unavailable for url: https://api.payments.internal/charge
+2024-01-15T09:06:18.000+00:00 ERROR app.web HTTPError: 503 Service Unavailable for url: https://api.payments.internal/charge
+2024-01-15T09:06:21.000+00:00 ERROR app.web HTTPError: 503 Service Unavailable for url: https://api.payments.internal/charge
+2024-01-15T09:06:24.000+00:00 ERROR app.web HTTPError: 503 Service Unavailable for url: https://api.payments.internal/charge
+2024-01-15T09:06:27.000+00:00 ERROR app.web HTTPError: 503 Service Unavailable for url: https://api.payments.internal/charge
+2024-01-15T09:06:35.000+00:00 ERROR app.web HTTPError: 502 Bad Gateway for url: https://api.inventory.internal/stock
+2024-01-15T09:06:50.000+00:00 ERROR app.auth KeyError: 'user_role'
+Traceback (most recent call last):
+  File "/app/middleware/auth.py", line 34, in validate_token
+    role = token_data['user_role']
+KeyError: 'user_role'
+2024-01-15T09:07:00.000+00:00 ERROR app.payment ConnectionError: HTTPSConnectionPool Max retries exceeded
+Traceback (most recent call last):
+  File "/app/services/payment.py", line 87, in process_payment
+    response = requests.post(gateway_url, json=payload, timeout=30)
+  File "/usr/lib/python3.11/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.payments.internal', port=443): Max retries exceeded
+2024-01-15T09:07:10.000+00:00 WARNING app.cache High cache miss rate: 75%
+2024-01-15T09:07:15.000+00:00 WARNING app.cache High cache miss rate: 80%
+2024-01-15T09:07:20.000+00:00 WARNING app.cache High cache miss rate: 85%
+2024-01-15T09:07:25.000+00:00 WARNING app.cache High cache miss rate: 90%
+2024-01-15T09:07:31.000+00:00 ERROR app.cache CacheConnectionError: Redis connection lost after 3 retries
+2024-01-15T09:07:32.000+00:00 ERROR app.cache CacheConnectionError: Redis connection lost after 3 retries
+2024-01-15T09:07:40.000+00:00 WARNING app.config Test environment detected: api_key=sk-test-FAKECREDENTIAL12345 (not real)
+2024-01-15T09:07:41.000+00:00 WARNING app.config DB URL: postgres://testuser:FakeTestPassword@localhost:5432/testdb
+2024-01-15T09:07:50.000+00:00 ERROR app.import ImportError: No module named 'missing_analytics_plugin'
+2024-01-15T09:07:51.000+00:00 ERROR app.db TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'
+2024-01-15T09:07:52.000+00:00 ERROR app.auth ValueError: Token expired or invalid JWT signature
+MALFORMED_ENTRY: {broken json }
+just some plain text that has no timestamp or severity level at all
+>>> weird shell-looking line from log aggregator
+2024-01-15T09:10:00.000+00:00 INFO app.db Reconnecting to database...
+2024-01-15T09:10:02.000+00:00 INFO app.db Database connection restored successfully
+2024-01-15T09:10:05.000+00:00 INFO app.web Service fully recovered — resuming normal operations

@@ -1,0 +1,28 @@
+2024-01-15T12:00:00.000+00:00 INFO app.startup Worker process started pid=12345
+2024-01-15T12:00:01.000+00:00 DEBUG app.config Loaded config from /etc/app/config.yaml
+# This line is malformed and has no timestamp or severity
+MALFORMED_ENTRY: {"key": "value", "another":
+2024-01-15T12:00:02.000+00:00 INFO app.web Listening on 0.0.0.0:9000
+just some plain text that doesn't match any format
+>>> another weird line with leading angle brackets
+2024-01-15T12:00:05.000+00:00 WARNING app.security Possible credentials in request parameters: api_key=sk-test-fake123456 (test environment only)
+2024-01-15T12:00:06.000+00:00 ERROR app.config Failed to load plugin: ImportError: No module named 'missing_plugin'
+Traceback (most recent call last):
+  File "/app/core/loader.py", line 55, in load_plugin
+    module = importlib.import_module(plugin_name)
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ImportError: No module named 'missing_plugin'
+
+2024-01-15T12:00:07.000+00:00 INFO app.web GET /healthz 200 OK
+2024-01-15T12:00:08.000+00:00 ERROR app.db TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'
+Traceback (most recent call last):
+  File "/app/models/user.py", line 112, in calculate_score
+    total = base_score + bonus_score
+TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'
+
+2024-01-15T12:00:09.000+00:00 WARNING app.auth Deprecated auth method used by client 192.168.1.50
+2024-01-15T12:00:10.000+00:00 DEBUG app.cache Cache hit for key: product:catalog:v2
+2024-01-15T12:00:11.000+00:00 ERROR app.config Failed to load plugin: ImportError: No module named 'missing_plugin'
+2024-01-15T12:00:12.000+00:00 ERROR app.db TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'
+2024-01-15T12:00:13.000+00:00 INFO app.web POST /api/data 201 Created

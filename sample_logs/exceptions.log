@@ -1,0 +1,37 @@
+2024-01-15T11:00:00.000+00:00 INFO app.web Request processing started
+2024-01-15T11:00:01.000+00:00 INFO app.auth User authentication successful for user_id=1001
+2024-01-15T11:00:02.000+00:00 ERROR app.api HTTPError: 503 Service Unavailable for url: https://api.payment-gateway.com/charge
+Traceback (most recent call last):
+  File "/app/services/payment.py", line 87, in process_payment
+    response = requests.post(gateway_url, json=payload, timeout=30)
+  File "/usr/lib/python3.11/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.payment-gateway.com', port=443): Max retries exceeded
+
+2024-01-15T11:00:03.000+00:00 ERROR app.auth KeyError: 'user_role'
+Traceback (most recent call last):
+  File "/app/middleware/auth.py", line 34, in validate_token
+    role = token_data['user_role']
+KeyError: 'user_role'
+
+2024-01-15T11:00:04.000+00:00 ERROR app.api HTTPError: 502 Bad Gateway for url: https://api.inventory.internal/stock
+2024-01-15T11:00:05.000+00:00 ERROR app.api HTTPError: 503 Service Unavailable for url: https://api.payment-gateway.com/charge
+2024-01-15T11:00:06.000+00:00 WARNING app.cache Cache miss rate above 90% for key prefix: session:*
+2024-01-15T11:00:07.000+00:00 ERROR app.api HTTPError: 500 Internal Server Error for url: https://api.inventory.internal/stock
+2024-01-15T11:00:08.000+00:00 ERROR app.api HTTPError: 503 Service Unavailable for url: https://api.payment-gateway.com/charge
+2024-01-15T11:00:09.000+00:00 ERROR app.api HTTPError: 503 Service Unavailable for url: https://api.payment-gateway.com/refund
+2024-01-15T11:00:10.000+00:00 CRITICAL app.api Payment gateway completely unreachable — all payment processing halted
+2024-01-15T11:00:11.000+00:00 ERROR app.auth KeyError: 'user_role'
+2024-01-15T11:00:12.000+00:00 ERROR app.auth ValueError: Token expired or invalid signature
+Traceback (most recent call last):
+  File "/app/middleware/auth.py", line 28, in decode_jwt
+    payload = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
+  File "/usr/lib/python3.11/site-packages/jwt/api_jwt.py", line 119, in decode
+    decoded = api_jws.decode_complete(jwt, keys, algorithms, options)
+jwt.exceptions.ExpiredSignatureError: Signature has expired
+
+2024-01-15T11:00:13.000+00:00 INFO app.web Serving static asset /static/app.js 304 Not Modified
+2024-01-15T11:00:14.000+00:00 ERROR app.api HTTPError: 503 Service Unavailable for url: https://api.payment-gateway.com/charge
+2024-01-15T11:00:15.000+00:00 ERROR app.api HTTPError: 503 Service Unavailable for url: https://api.payment-gateway.com/charge
+2024-01-15T11:00:16.000+00:00 WARNING app.db Slow query: UPDATE orders SET status='failed' WHERE payment_status='pending' took 2100ms
+2024-01-15T11:01:00.000+00:00 INFO app.api Payment gateway recovered, resuming normal operations
