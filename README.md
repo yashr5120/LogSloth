@@ -263,11 +263,6 @@ LogSloth can be evaluated against the synthetic demo logs:
 
 ---
 
-## 📸 Screenshots
-
-_Screenshots can be taken after launching `streamlit run app.py` and loading the demo logs._
-
----
 
 ## 🏆 Hacktoberfest 2026 — Slow and Steady
 
