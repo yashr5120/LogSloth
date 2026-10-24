@@ -97,7 +97,7 @@ graph TD
 ### 1. Clone the repository
 
 ```powershell
-git clone https://github.com/yourusername/logsloth.git
+git clone https://github.com/yashr5120/LogSloth
 cd logsloth
 ```
 
